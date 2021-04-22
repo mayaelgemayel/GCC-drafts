@@ -118,7 +118,26 @@ def charCaesarCap(c, d):
 
     return chr(l)
 
+def wordCaesarCap(w, nb):
+    """
+    wordCaesarCap: function that applies Caesar's cipher
+    on a whole word.
+
+    Uses letterCaesar cipher.
+    """
+    l = len(w)
+    res = ""
+
+    for i in range(l):
+        res += charCaesarCap(w[i], nb)
+    return res
+
 print(charCaesarCap('a', 5))
 print(charCaesarCap('e', -5))
+
+res = wordCaesarCap("Hello World", 10)
+print(res)
+res2 = wordCaesarCap(res, -10)
+print(res2)
 
 
