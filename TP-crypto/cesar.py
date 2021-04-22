@@ -26,8 +26,13 @@ def letterCaesar(l, nb):
     raise ValueError("Error: value is not a letter")
 
 def letterCaesarMod(l, nb):
+    """
+    letterCaesar: function that applies Caesar's cipher
+    on only one letter.
+    """
     if l == " ":
         return l
+
     asc = ord(l)
     asc += nb
 
@@ -92,4 +97,28 @@ res =wordCaesarMod("Hello World", 10)
 print(res)
 res2 = wordCaesarMod(res, -10)
 print(res2)
+
+#Caesar cipher while taking into account only capital letters
+
+def charCaesarCap(c, d):
+    """
+    Function that applies Caesar cipher on one letter.
+    """
+    if c == " ":
+        return c
+    letter = c.upper()
+
+    l = ord(letter) + d
+
+    if letter >= 'A' and letter <= 'Z':
+        if l > ord('Z'):
+            l = ord('A') + l % ord('Z') -1
+        if l < ord('A'):
+            l = ord('Z') - (ord('A') - l) +1
+
+    return chr(l)
+
+print(charCaesarCap('a', 5))
+print(charCaesarCap('e', -5))
+
 
